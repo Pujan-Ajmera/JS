@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script> 
+	faculty =[
+	{
+		name:"bala sir",
+		rollno:101,
+		subject:"JS",
+	},
+
+	{
+		name:"Jadeja Sir",
+		rollno:102,
+		subject:"DS",
+	},
+
+
+	{
+		name:"Kartik sir",
+		rollno:103,
+		subject:"Maths",
+	}
+
+	];
+
+	document.write("<table border=1>");
+	for(i=0;i<faculty.length;i++){
+		document.write("<tr>");
+		document.write("<td>"+faculty[i].name+"</td>");
+		document.write("<td>"+faculty[i].rollno+"</td>");
+		document.write("<td>"+faculty[i].subject+"</td>");
+		document.write("<td>"+"<img src=https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg">"+"</td>")
+		document.write("</tr>");
+	}
+document.write("</table>");
+</script>
+</body>
+</html>
