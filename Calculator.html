@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style> 
+		body{
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+		}
+		.container{
+			height:350px;
+			width:300px;
+			border:2px solid black;
+			border-radius:2%;
+		}
+		input{
+			margin:3px;
+			border:2px solid black;
+			width:95%;
+			height:10%;
+			border-radius:2%;
+			margin-bottom:10px;
+		}
+		button{
+			height:50px;
+			width:25%;
+			font-size:25px;
+			margin-bottom:10px;
+			margin-left:3px;
+			margin-right:3px;
+		}
+
+		.btn{
+			display:flex;
+			gap:5px;
+			justify-content:space-evenly;
+		}
+
+		#zero{
+			height:50px;
+			width:350%;
+		}
+	</style>
+</head>
+
+<body>
+
+<div class="container"> 
+	<input type="text" id="dataholder">
+	<div class="btn"> 
+		<button id="CE" onclick="clearAll()">CE</button>
+		<button id="C" onclick="clearOne()">C</button>
+		<button id="+/-" onclick="changeSign()">+/-</button>
+		<button id="sqrt" onclick="sqrt()">sqrt</button>
+	</div>
+
+	<div class="btn"> 
+		<button id="7" onclick="display(7)">7</button>
+		<button id="8" onclick="display(8)">8</button>
+		<button id="9" onclick="display(9)">9</button>
+		<button id="/" onclick="display('/')">/</button>
+	</div>
+	<div class="btn"> 
+		<button onclick="display(4)">4</button>
+		<button onclick="display(5)">5</button>
+		<button onclick="display(6)">6</button>
+		<button onclick="display('*')">*</button>
+	</div>
+
+	<div class="btn"> 
+		<button onclick="display(1)">1</button>
+		<button onclick="display(2)">2</button>
+		<button onclick="display(3)">3</button>
+		<button onclick="display('-')">-</button>
+	</div>
+	
+	<div class="btn"> 
+		<button onclick="display(0)">0</button>
+		<button onclick="display('.')">.</button>
+		<button onclick="display('=')">=</button>
+		<button onclick="display('+')">+</button>
+	</div>
+</div>
+<br>
+			<img src="calc.jpg" height="200px";width="200px">
+
+			<script> 
+				dataholder = document.getElementById("dataholder")
+				function display(id){
+					if(id=='='){
+						evaluate();
+					}
+					else{
+						dataholder.value+=id
+					}
+					
+				}
+
+				function evaluate(){
+					if(dataholder.value.includes('+')){
+						console.log("+");
+						add();
+					}
+					else if(dataholder.value.includes('-')){
+						console.log("-");
+						subtract();
+					}
+					else if(dataholder.value.includes('*')){
+						console.log("*");
+						multiply();
+					}
+					else if(dataholder.value.includes('/')){
+						console.log("/");
+						divide();
+					}
+				}
+
+				function add(){
+					ind = dataholder.value.indexOf('+')
+					one = dataholder.value.substring(0,ind)
+					two = dataholder.value.substring(ind+1,dataholder.value.length)
+					dataholder.value =  (parseFloat(one)+parseFloat(two)).toFixed(5);
+				}
+
+				function subtract(){
+					ind = dataholder.value.indexOf('-')
+					one = dataholder.value.substring(0,ind)
+					two = dataholder.value.substring(ind+1,dataholder.value.length)
+					dataholder.value =  (parseFloat(one)-parseFloat(two)).toFixed(5);
+				}
+
+				function multiply(){
+					ind = dataholder.value.indexOf('*')
+					one = dataholder.value.substring(0,ind)
+					two = dataholder.value.substring(ind+1,dataholder.value.length)
+					dataholder.value =  (parseFloat(one)*parseFloat(two)).toFixed(5);
+				}
+
+				function divide(){
+					ind = dataholder.value.indexOf('/')
+					one = dataholder.value.substring(0,ind)
+					two = dataholder.value.substring(ind+1,dataholder.value.length)
+					dataholder.value =  (	parseFloat(one)/parseFloat(two)).toFixed(5);
+				}
+
+				function clearAll(){
+					dataholder.value=""
+				}
+
+				function clearOne(){
+					dataholder.value = dataholder.value.substring(0,dataholder.value.length-1)
+				}
+
+				function sqrt(){
+					dataholder.value = Math.pow(parseFloat(dataholder.value),2);	
+				}
+
+				function changeSign(){
+					dataholder.value = -1*dataholder.value;		
+				}
+			</script>
+</body>
+</html>
