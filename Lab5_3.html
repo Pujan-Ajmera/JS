@@ -1,0 +1,80 @@
+<!-- WAP to create a static login page using HTML and JavaScript. (B)-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style> 
+		body{
+			height:100vh;
+			width:100%;
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}	
+		.container{
+			height:500px;
+			width:400px;
+			border:2px solid black;
+			border-radius:2px;
+			display:flex;
+			flex-direction:column;
+			justify-content:space-between;
+		}
+
+		.container div{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		
+		}
+
+		#name{
+			height:50px;
+			background-color:#00008B;
+			font-size:30px;
+			color:white;
+		}
+
+		#text{
+			color:#00008B;
+			font-size:25px;
+		}
+
+		#text2{
+			color:#00008B;
+			font-size:25px;
+		}
+
+		input{
+			width:75%;
+			height:120%;
+			border-radius:5px;
+			border:2px solid grey;
+		}
+		button{
+			width:75%;
+			height:120%;
+			border-radius:5px;
+			background-color:#124429;
+			font-size:20px;
+			color:white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container"> 
+		<div id="name">SOPHOS</div>
+		<div id="text">Sign in to access this network</div>
+		<div><input type="text" placeholder="Username"></div>
+		<div><input type="password" placeholder="Password"></div>
+		<div><button>Sign input</button></div>
+		<div id="text2">Access the user portal</div>
+	</div>
+
+
+</body>
+</html>
