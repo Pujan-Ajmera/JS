@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+	body {
+            font-family: Arial, sans-serif; /* Adding a common font for better readability */
+            background-color: white; /* Setting initial background color */
+            text-align: center; /* Centering content */
+            margin-top: 50px; /* Adding some top margin for better visual */
+        }
+        button {
+            padding: 12px 24px; /* Adding padding inside the button */
+            font-size: 16px; /* Setting a readable font size */
+            background-color: #3498db; /* Setting a blue background color */
+            color: white; /* Setting text color to white */
+            border: none; /* Removing default button border */
+            cursor: pointer; /* Changing cursor to pointer on hover */
+            border-radius: 4px; /* Adding slight border radius for rounded corners */
+            transition: background-color 0.3s; /* Adding smooth background color transition */
+        }
+        button:hover {
+            background-color: #2980b9; /* Darkening the background color on hover */
+        }
+        </style>
+
+</head>
+<body id="bdy">
+	<button onclick="toggle()">click me!</button>
+	<Script> 
+		white = true;
+		function toggle(){
+			
+			if(white){
+				document.getElementById("bdy").style.backgroundColor="black";
+				white=false;
+			}
+			else{
+				document.getElementById("bdy").style.backgroundColor="white";
+				white=true;	
+			}
+		}
+
+	</Script>
+</body>
+</html>
