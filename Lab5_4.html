@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style> 
+		body{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			
+		}
+		.container{
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			gap:25px;	
+			border:2px solid black;
+		}
+
+		input{
+			border-radius:2px;
+			border:2px solid black;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"> 
+		<input type="text" placeholder="username" id="uname">
+		<input type="password" placeholder="passoword" id="password">
+		<input type="password" placeholder="verifypassword" id="verifypassword">
+		<input type="number" placeholder="age" id="age">		
+		<input type="text" placeholder="enrollment no" id="enrollment">
+		<input type="email" placeholder="email" id="email">
+		<input type="submit" onclick="validate()">
+	</div>
+
+	<script>
+		uname = document.getElementById("uname")
+		password = document.getElementById("password")
+		vpassword = document.getElementById("verifypassword")
+		eno = document.getElementById("enrollment")
+		age =  document.getElementById("age")
+		em = document.getElementById("email")
+		function validate(){
+			if(uname.value.length<8){
+				uname.style.border="1px solid red"
+			}
+			pass_pattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+			if((password.value.length<8 ||password.value.length>12 )&& !pass_pattern.test(password)){
+				password.style.border="1px solid red"
+			}
+
+			if(password.value!=vpassword.value){
+				password.style.border="1px solid red"
+				vpassword.style.border="1px solid red"				
+			}
+			if(eno.value.length<11 || eno.value	.length>12){
+				eno.style.border="1px solid red"
+			}
+
+			if(age.value<18){
+				age.style.border="1px solid red"				
+			}
+			email_pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,6}$/;
+
+			if(!email_pattern.test(em.value)){
+				em.style.border="1px solid red"
+			}
+		}
+
+	</script>
+
+</body>
+</html>
