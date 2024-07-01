@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form onsubmit="return false;"> 
+		<button  type="submit" onclick="display('submit')">submit</button>
+		<button  type="reset" >reset</button>
+	</form>
+
+<script>
+			document.addEventListener('submit',()=>display('submitted'))
+			document.addEventListener('reset',()=>display('reset'))
+			function display(id){
+				console.log("id is "+id);
+				return false
+			}
+</script>
+</body>
+</html>

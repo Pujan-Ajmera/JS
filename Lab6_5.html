@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<input id="t" type="text">
+	<button onclick="fn()">click me</button>
+	
+	<script> 
+		let te = document.getElementById('t')
+		vl = 'text';
+		function fn(){
+			if(vl=='text'){
+				te.type='date';
+				vl='date'
+			}
+			else{
+			te.type='text';
+			vl='text'
+			}
+		}
+	</script>
+</body>
+</html>
+

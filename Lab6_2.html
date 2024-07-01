@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id="btn" onclick="disp()">click me</button>
+<script type="">
+		function disp(){
+			bdy = document.getElementById('btn')
+	document.addEventListener('click',() =>{bdy.innerHTML = 'clicked'})
+	document.addEventListener('dblclick',() =>{bdy.innerHTML = 'double clicked'})
+	document.addEventListener('mouseleave',() =>{bdy.innerHTML = 'mouseleave'})
+	document.addEventListener('mousemove',() =>{bdy.innerHTML = 'mousemove'})
+	document.addEventListener('mouseup',() =>{bdy.innerHTML = 'ouseup'})
+	document.addEventListener('mousedown',() =>{bdy.innerHTML = 'mousedown'})
+		}
+</script>
+</body>
+</html>
