@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<style> 
+	body{
+		background-color:black;
+	}
+	.container{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		gap:5px;
+	}
+
+	.main{
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		flex-direction:column;
+
+	}
+	.container div{
+		height:200px;
+		width:200px;
+		font-size:25px;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		border:2px solid grey;
+		background-color:white;
+	}
+</style>
+</head>
+<body>
+<div class="main">
+
+<div class="container"> 
+	<div id="hour">1</div>
+	<div id="min">1</div>
+	<div id="sec">1</div>
+</div>
+
+</div>
+	<button onclick="setVal()">Exit</button>
+		<script type="text/javascript"> 
+			if(localStorage.length==0){
+				sec=0;
+				min=0;
+				hour=0;
+			}
+			else{
+				sec = parseInt(localStorage.getItem('sec'));
+				min = parseInt(localStorage.getItem('min'));
+				hour = parseInt(localStorage.getItem('hour'));
+			}
+			let idOFInterval = setInterval(increaseSec,1000)
+
+			function increaseSec(){
+				sec++;
+				if(sec==60){
+					min++;
+					sec=0;
+				}
+				if(min==60){
+					hour++;
+					min=0;
+				}
+				document.getElementById('sec').innerHTML = sec;
+				document.getElementById('min').innerHTML = min;
+				document.getElementById('hour').innerHTML = hour;
+			}
+			window.addEventListener('beforeunload', function () {
+				   	setVal()
+				   });
+			function setVal(){
+				clearInterval(idOFInterval);
+				localStorage.setItem('hour',hour+"");
+				localStorage.setItem('min',min+"");
+				localStorage.setItem('sec',sec+"");
+			}
+		</script>
+</body>
+</html>
