@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Time Display</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+    }
+    .time-block {
+        display: inline-block;
+        width: 100px;
+        height: 150px;
+        background-color: #333;
+        color: #fff;
+        font-size: 3em;
+        text-align: center;
+        line-height: 150px;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="time-block" id="hours">00</div>
+    <div class="time-block" id="minutes">00</div>
+    <div class="time-block" id="seconds">00</div>
+
+    <script>
+    hr = document.getElementById('hours')
+    min = document.getElementById('minutes') 
+    sec = document.getElementById('seconds')
+    function display(){
+    	n = new Date();
+    	hr.innerHTML = n.getHours();
+    	min.innerHTML = n.getMinutes();
+    	sec.innerHTML = n.getSeconds();
+    }
+    setInterval(display,1000);
+
+    </script>
+</body>
+</html>
