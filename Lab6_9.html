@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script> 
+
+	addEventListener('keypress',(event)=>{
+		var s = 'aeiou'
+		if(s.includes(event.key)){
+			console.log("vovel"+event.key)
+		}
+	})
+
+	let white = 'white'
+	addEventListener('keyup',(event)=>{
+		if(white=='white'){
+		document.body.style.background = "blue"
+		white='blue'
+			}
+		else{
+		document.body.style.background = "white	"
+		white='white'
+			
+		}
+	})
+
+</script>
+</body>
+</html>

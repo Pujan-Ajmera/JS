@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		let obj ={
+			a:'1',
+			b:'2',
+			c:'3'
+		}
+		new_obj = {...obj,d:'69'}
+		console.log(new_obj)
+
+		const {a,...rest} = new_obj
+		console.log(a)		
+		console.log(rest)
+	</script>
+</body>
+</html>
