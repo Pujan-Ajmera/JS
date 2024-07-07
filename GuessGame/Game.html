@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+		<style>
+			button{
+				height:160px;
+				width:250px;
+			}
+  
+			.container{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				gap:3px;
+			}
+			img{
+				height:140px;
+				width:240px;
+				
+			}
+			
+			 
+	
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="has">
+	<button onclick="show(0,'java')" value="insta">
+		<img src="https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png" id='one'>
+	</button>
+
+	<button onclick="show(1,'java')" value="insta">
+		<img src="https://logos-world.net/wp-content/uploads/2022/07/Java-Logo.png" id='two'>
+	</button>
+
+	<button onclick="show(2,'python')" value="du">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" id='three'>
+	</button>
+
+	<button onclick="show(3,'python')" value="du">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png" id='three'>
+	</button>
+	</div>
+
+	<div class="has">
+	<button onclick="show(4,'js')">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png" id='four'>
+	</button>
+
+	<button onclick="show(5,'js')">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png" id='five'>
+	</button>
+
+
+	<button onclick="show(6,'go')" value="insta">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/2560px-Go_Logo_Blue.svg.png" id='one'>
+	</button>
+
+	<button onclick="show(7,'go')" value="insta">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/2560px-Go_Logo_Blue.svg.png" id='two'>
+	</button>
+
+	</div>
+	<div class="has">
+	<button onclick="show(8,'rust')" value="du">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png" id='three'>
+	</button>
+
+	<button onclick="show(9,'rust')" value="du">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/2048px-Rust_programming_language_black_logo.svg.png" id='three'>
+	</button>
+
+	<button onclick="show(10,'css')">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/1024px-CSS3_logo.svg.png" id='four'>
+	</button>
+
+	<button onclick="show(11,'css')">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/1024px-CSS3_logo.svg.png" id='five'>
+	</button>
+	</div>
+	
+	<div class="has">
+	<button onclick="show(12,'c#')" value="insta">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1200px-C_Programming_Language.svg.png" id='one'>
+	</button>
+
+	<button onclick="show(13,'c#')" value="insta">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1200px-C_Programming_Language.svg.png" id='two'>
+	</button>
+
+	<button onclick="show(14,'ruby')" value="du">
+		<img src="https://www.svgrepo.com/show/376346/ruby.svg" id='three'>
+	</button>
+
+	<button onclick="show(15,'ruby')" value="du">
+		<img src="https://www.svgrepo.com/show/376346/ruby.svg" id='three'>
+	</button>
+</div>
+
+</div>
+	<script>
+		image  = document.getElementsByTagName('img')
+		noofvisible = 0;
+		let a = [];
+		for(i=0;i<16;i++){
+		image[i].style.visibility = "hidden";
+		}
+		function show(id,value){
+			image[id].style.visibility = "visible";
+			noofvisible++;
+			a.push(value);
+			if(noofvisible == 2){
+				checkMatch();
+				noofvisible=0;
+			}
+		}
+		function checkMatch() {
+      if (a[0] == a[1]) {
+        console.log("Matched!");
+        a=[];
+      } else {
+      	console.log(a)
+        setTimeout(() => {
+          console.log("Execute after 10 seconds");
+
+          // Reset variables
+          noofvisible = 0;
+          for (let i = 0; i < 16; i++) {
+            image[i].style.visibility = "hidden";
+          }
+        }, 500);
+        a=[];
+      }
+      console.log(a)
+
+    }
+	</script>
+</body>
+    </html>
