@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glass Morphism Effect</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #f0f0f0; /* Background color behind the glass effect */
+        background-image:url("/IMG-20240711-WA0017.jpg");
+        background-size: cover;
+        
+        background-position: center;
+    }
+
+    .glass-container {
+        background-color: rgba(255, 255, 255, 0.2); /* Glass background color with transparency */
+        backdrop-filter: blur(20px); /* Blur effect for the glass */
+        border-radius: 10px; /* Rounded corners for the glass */
+        padding: 20px; /* Padding inside the glass container */
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Box shadow for a lifted effect */
+        width: 80%; /* Width of the glass container */
+        max-width: 400px; /* Maximum width for responsiveness */
+    }
+
+    .glass-container h2 {
+        color: black; /* Color of the text inside the glass */
+        margin-bottom: 10px; /* Bottom margin for the text */
+    }
+    #generate{
+      height:70px;
+      width:200px;
+      position:absolute;
+      top:90%;
+      left:40%;
+      border:2px solid black;
+      
+    }
+    #value,#by{
+      color:white;
+    }
+</style>
+</head>
+<body id="image">
+
+<div class="glass-container">
+    <h2 id="value">value</h2>
+    <p id="by">by</p>
+</div>
+
+<button id="generate" onclick="generate()">Generate Quote</button>
+<script>
+value = document.getElementById("value");
+by = document.getElementById("by");
+
+  array =[
+      {
+        value:"The only true wisdom is in knowing you know nothing.",
+        by:"Socrates"
+      },
+      
+      {
+        value:"Never interrupt your enemy when he is making a mistake",
+        by:"Napoleon Bonaparte"
+      },
+      
+       {
+        value:"Good people do not need law to tell them to act responsibly, while bad people will find a way around the laws.",
+        by:"Aristotle"
+      },
+      
+      {
+        value:"You can’t go back and change the beginning, but you can start where you are and change the ending",
+        by:"— C. S. Lewis"
+      },
+      
+       {
+        value:"Happiness is not the absence of problems, it’s the ability to deal with them",
+        by:"Steve Maraboli"
+      },
+      
+      {
+        value:"The worst of all deceptions is self-deception",
+        by:"Plato"
+      },
+      
+       {
+        value:"Happiness and freedom begin with one principle. Some things are within your control and some are not",
+        by:"Epictetus"
+      },
+      
+      {
+        value:"If you do not change direction you may end up where you are heading.",
+        by:"Lao Tzu"
+      },
+      
+      {
+        value:"False words are not only evil themselves, but they infect the soul with evil",
+        by:"Epictetus"
+      },
+      
+      {
+        value:"An unexamined life is not worth living.",
+        by:"Dirutz Ahemz"
+      },
+      
+      
+  {
+    "value": "Know thyself.",
+    "by": "Socrates"
+  },
+  {
+    "value": "Wisdom begins in wonder.",
+    "by": "Socrates"
+  },
+  {
+    "value": "The unexamined life is not worth living.",
+    "by": "Socrates"
+  },
+  {
+    "value": "Happiness depends upon ourselves.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "Knowing yourself is the beginning of all wisdom.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "We are what we repeatedly do. Excellence, then, is not an act but a habit.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "Change is the only constant in life.",
+    "by": "Heraclitus"
+  },
+  {
+    "value": "Character is destiny.",
+    "by": "Heraclitus"
+  },
+  {
+    "value": "To be conscious that we are perceiving or thinking is to be conscious of our own existence.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "The soul becomes dyed with the color of its thoughts.",
+    "by": "Marcus Aurelius"
+  },
+  {
+    "value": "If it is not right, do not do it; if it is not true, do not say it.",
+    "by": "Marcus Aurelius"
+  },
+  {
+    "value": "He who is not contented with what he has, would not be contented with what he would like to have.",
+    "by": "Socrates"
+  },
+  {
+    "value": "It is not living that matters, but living rightly.",
+    "by": "Socrates"
+  },
+  {
+    "value": "The greater the difficulty, the more glory in surmounting it.",
+    "by": "Epicurus"
+  },
+  {
+    "value": "He who has a why to live can bear almost any how.",
+    "by": "Friedrich Nietzsche"
+  },
+  {
+    "value": "The mind is not a vessel to be filled, but a fire to be kindled.",
+    "by": "Plutarch"
+  },
+  {
+    "value": "Time is the wisest counselor of all.",
+    "by": "Pericles"
+  },
+  {
+    "value": "The greatest wealth is to live content with little.",
+    "by": "Plato"
+  },
+  {
+    "value": "To find yourself, think for yourself.",
+    "by": "Socrates"
+  },
+  {
+    "value": "The secret of happiness, you see, is not found in seeking more, but in developing the capacity to enjoy less.",
+    "by": "Socrates"
+  },
+  {
+    "value": "Excellence is never an accident. It is always the result of high intention, sincere effort, and intelligent execution; it represents the wise choice of many alternatives.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "Knowing yourself is the beginning of all wisdom.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "Pleasure in the job puts perfection in the work.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "The more you know, the more you realize you know nothing.",
+    "by": "Socrates"
+  },
+  {
+    "value": "The greatest way to live with honor in this world is to be what we pretend to be.",
+    "by": "Socrates"
+  },
+  {
+    "value": "I am not an Athenian or a Greek, but a citizen of the world.",
+    "by": "Diogenes"
+  },
+  {
+    "value": "The shortest way to riches is through contempt of riches.",
+    "by": "Diogenes"
+  },
+  {
+    "value": "The foundation of every state is the education of its youth.",
+    "by": "Diogenes"
+  },
+  {
+    "value": "I threw my cup away when I saw a child drinking from his hands at the trough.",
+    "by": "Diogenes"
+  },
+  {
+    "value": "Wishing to be friends is quick work, but friendship is a slow ripening fruit.",
+    "by": "Aristotle"
+  },
+  {
+    "value": "The only good is knowledge and the only evil is ignorance.",
+    "by": "Herodotus"
+  },
+  {
+    "value": "Great deeds are usually wrought at great risks.",
+    "by": "Herodotus"
+  },
+  {
+    "value": "A learned fool is more a fool than an ignorant fool.",
+    "by": "Molière"
+  },
+
+
+
+    ];
+    
+    fonts=[
+      'Pacifico',
+      'Noto Sans TC',
+      'Montserrat',
+      'Lato'
+      ,'Roboto',
+      'open sans',
+      ,'cursive'];
+    
+    
+    image = document.getElementById('image');
+    
+    imgarr = ['/IMG-20240711-WA0017.jpg','/IMG-20240711-WA0018.jpg','/IMG-20240711-WA0019.jpg','/IMG-20240711-WA0020.jpg','/IMG-20240711-WA0021.jpg','/IMG-20240711-WA0022.jpg','/IMG-20240711-WA0023.jpg','/IMG-20240711-WA0024.jpg','/IMG-20240711-WA0025.jpg','/IMG-20240711-WA0026.jpg','/IMG-20240711-WA0027.jpg','/IMG-20240711-WA0029.jpg'];
+    
+    setInterval(function(){
+      randImg = parseInt((Math.random()*12));
+      console.log("yay")
+      document.body.style.backgroundImage="url('"+imgarr[randImg]+"')";
+    },5000);
+    
+    
+   function generate(){
+      val = parseInt((Math.random()*43));
+      font = parseInt((Math.random()*7));
+      
+      value.style.fontFamily=fonts[font];
+      
+      value.innerHTML = array[val].value;
+    by.innerHTML = array[val].by;
+    console.log(array.length);
+    }
+</script>
+
+</body>
+</html>
