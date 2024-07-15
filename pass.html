@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Password Generator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:  #008080; /* Light blue background color 
+    Dark Green:
+Dark Slate Blue: #483d8b
+Midnight Blue: #191970
+Dark Cyan: #008b8b
+Teal: #008080
+Dark Olive Green: #556b2f
+Navy Blue: #000080
+Forest Green: #228b22
+Indigo: #4b0082
+Dark Turquoise: #00ced1
+    */
+  }
+
+  .container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 24px;
+  }
+
+  .password {
+    margin: 15px auto;
+    padding: 5px;
+    width: 100%;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: 0; 
+    text-align: center;
+  }
+
+  .password::selection {
+    background-color: #79b8ff; /* Highlight color */
+    color: #fff;
+  }
+
+  .generate-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .generate-btn:hover {
+    background-color: #45a049;
+  }
+
+  .copy-btn {
+    display: block;
+    margin-left: 5px;
+    margin-top: 10px;
+    width:100%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+
+  .copy-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Generate Random Password</h1>
+    <input type="text" id="password" class="password" readonly placeholder="Password">
+    <button class="generate-btn" onclick="generate()">Generate Password</button>
+    <button class="copy-btn" onclick="copy()">Copy Password</button>
+  </div>
+  <script>
+    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    lowercase="abcdefghijklmnopqrstuvwxyz";
+    number = "0123456789"
+    characters="#$&_@+*:-/^¢^£€|•";
+    
+    function generate(){
+      password="";
+      for(i=0;i<3;i++){
+       a = uppercase.charAt(parseInt(Math.random()*26));
+       c = number.charAt(parseInt(Math.random()*10));
+       
+       d = characters.charAt(parseInt(Math.random()*17));
+       
+      b = lowercase.charAt(parseInt(Math.random()*26));
+       
+        password+=(a+b+c+d);
+        
+      }
+      document.getElementById('password').value= password;
+    }
+    
+    function copy(){
+    passwordField =document.getElementById('password')
+      passwordField.select();
+      passwordField.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    window.getSelection().removeAllRanges();
+   
+    }
+  </script> 
+</body>
+  </html>
+  
