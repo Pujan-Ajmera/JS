@@ -1,0 +1,1 @@
+mongodb+srv://23010101401:0qksHsX9X4NA58Bb@lab-demo.gpwzh.mongodb.net/
